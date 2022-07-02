@@ -8,19 +8,15 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function getAllPosts() {
-        foreach (Post::all() as $post) {
-            dump($post->title);
-            dump($post->content);
-            dump($post->likes);
-        }
-        dd("end");
+        $posts = Post::all();
+
+        return view('posts', compact('posts'));
     }
 
     public function getPostById() {
         $id = request("id");
         $post = Post::where('id', $id)->first();      
-        dump($post->title);
-        dump($post->content);
-        dump($post->likes);
+        
+        return view('post', compact('post'));
     }
 }
