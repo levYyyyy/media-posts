@@ -1,7 +1,8 @@
 @extends('layouts/main')
 @section('structure')
-<div style="display: flex; justify-content: center">
-    <h1>News feed</h1>
+<div style="text-align: center;">
+    <h1>Posts</h1>
+    <a href="post/create">Create</a>
 </div>
 
 @foreach ($posts as $post)

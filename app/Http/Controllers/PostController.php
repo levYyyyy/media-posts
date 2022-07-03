@@ -28,7 +28,17 @@ class PostController extends Controller
     public function createPost(Request $request) {
         $title = $request->input("title");
         $content = $request->input("content");
-        $data=array('title'=>$title,"content"=>$content);
-        DB::table('posts')->insert($data);
+        #Generating random num and search for it in DB, if it doesnt exist => insert into DB
+        $id = rand(999,10000);
+        $post = Post::where('id', $id)->first();
+        if($post === null) {
+            $data=array('id'=>$id,'title'=>$title,"content"=>$content);
+            DB::table('posts')->insert($data);
+        }  
+    }
+
+    public function deletePostById() {
+        $id = request("id");
+        $post = Post::where('id', $id)->delete();
     }
 }
