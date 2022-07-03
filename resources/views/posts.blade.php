@@ -8,7 +8,7 @@
     <div class="container">
         
         <ul class="list-group">
-            <li class="list-group-item"><a href="post/{{ $post->id }}">{{ $post->title }}</a></li>
+            <li class="list-group-item"><a href="post/id/{{ $post->id }}">{{ $post->title }}</a></li>
         </ul>
     </div>
     
