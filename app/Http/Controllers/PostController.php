@@ -16,9 +16,15 @@ class PostController extends Controller
 
     public function getPostById() {
         $id = request("id");
-        $post = Post::where('id', $id)->first();      
-        
-        return view('post', compact('post'));
+        $post = Post::where('id', $id)->first();
+
+        if($post) {
+            return view('post', compact('post')); 
+        }
+        else {
+            return view('error');
+        }
+             
     }
 
     public function getCreatePostPage() {
@@ -34,11 +40,18 @@ class PostController extends Controller
         if($post === null) {
             $data=array('id'=>$id,'title'=>$title,"content"=>$content);
             DB::table('posts')->insert($data);
-        }  
+        }
     }
 
     public function deletePostById() {
         $id = request("id");
         $post = Post::where('id', $id)->delete();
+
+        if($post) {
+            return view('delete'); 
+        }
+        else {
+            return view('error');
+        }
     }
 }
