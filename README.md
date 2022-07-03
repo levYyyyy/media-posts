@@ -9,7 +9,7 @@ Simple CRUD app using
 
 # How to install
 
-1) Clone your project
+1) Clone project
 2) Go to the folder application using cd command on your cmd or terminal
 3) Run composer install on your cmd or terminal
 4) Copy .env.example file to .env on the root folder. copy .env.example .env, or cp .env.example .env if using terminal
